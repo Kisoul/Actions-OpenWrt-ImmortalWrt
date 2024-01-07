@@ -13,8 +13,8 @@
 # Modify the IP of the Openwrt's lan port
 sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
-# Delete 'exit 0' at the end of the 'zzz-default-settings' file
-sed -i '/exit 0/d' package/lean/default-settings/files/zzz-default-settings
+# Delete 'exit 0' at the end of the '99-default-settings' file
+sed -i '/exit 0/d' package/emortal/default-settings/files/99-default-settings
 
 # Modify the interface and IP of the Openwrt's wan port
 echo "#修改wan为静态地址\"192.168.2.200\"&修改物理接口为\"eth2\"" > temp_file
@@ -26,15 +26,15 @@ echo "echo \" 	 option ipaddr '192.168.2.200'\" >> /etc/config/network" >> temp_
 echo "echo \" 	 option netmask '255.255.255.0'\" >> /etc/config/network" >> temp_file
 echo "echo \" 	 option gateway '192.168.2.1'\" >> /etc/config/network" >> temp_file
 echo "echo \" 	 option dns '192.168.2.1'\" >> /etc/config/network" >> temp_file
-cat temp_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat temp_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm temp_file
 
 # Modify wan3 interface to WAN area
 # echo "#修改wan3接口为WAN区域" > area_file
 # echo "sed -i \"s/list network 'wan'/list network 'wan3'/\" /etc/config/firewall" > area_file
-# cat area_file >> package/lean/default-settings/files/zzz-default-settings
-# echo "" >> package/lean/default-settings/files/zzz-default-settings
+# cat area_file >> package/emortal/default-settings/files/99-default-settings
+# echo "" >> package/emortal/default-settings/files/99-default-settings
 # rm area_file
 
 # Add port forwarding for Openwrt
@@ -48,8 +48,8 @@ echo "echo \" 	 option src_dport '1216'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '80'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Internet'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-SSH
@@ -63,8 +63,8 @@ echo "echo \" 	 option src_dport '222'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '222'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'SSH'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-TTYD
@@ -78,8 +78,8 @@ echo "echo \" 	 option src_dport '7681'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '7681'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'TTYD'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-Openclash
@@ -93,8 +93,8 @@ echo "echo \" 	 option src_dport '9090'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '9090'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Openclash'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-Transmission
@@ -108,8 +108,8 @@ echo "echo \" 	 option src_dport '9091'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '9091'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Transmission'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-qBittorrent
@@ -123,8 +123,8 @@ echo "echo \" 	 option src_dport '8181'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '8080'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'qBittorrent'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-Aria2
@@ -138,8 +138,8 @@ echo "echo \" 	 option src_dport '6800'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '6800'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Aria2'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-Xupnpd
@@ -153,8 +153,8 @@ echo "echo \" 	 option src_dport '4044'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '4044'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Xupnpd'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-Alist
@@ -168,8 +168,8 @@ echo "echo \" 	 option src_dport '5244'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '5244'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Alist'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for ESXI
@@ -183,8 +183,8 @@ echo "echo \" 	 option src_dport '9443'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.2'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '443'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'ESXI'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for ESXI
@@ -198,8 +198,8 @@ echo "echo \" 	 option src_dport '902'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.2'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '902'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'ESXI'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for ESXI-SSH
@@ -213,8 +213,8 @@ echo "echo \" 	 option src_dport '223'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.2'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '22'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'ESXI-SSH'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Ubuntu
@@ -228,8 +228,8 @@ echo "echo \" 	 option src_dport '2222'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.187'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '22'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Ubuntu'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Synology
@@ -243,8 +243,8 @@ echo "echo \" 	 option src_dport '5000'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.173'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '5000'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Synology'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Synology-Transmission
@@ -258,8 +258,8 @@ echo "echo \" 	 option src_dport '9092'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.173'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '9091'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Synology-Transmission'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for test-Openwrt
@@ -273,8 +273,8 @@ echo "echo \" 	 option src_dport '1217'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.5.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '80'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'test-Internet'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for test-Openwrt(Internet)
@@ -288,8 +288,8 @@ echo "echo \" 	 option src_dport '1217'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.200'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '1217'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'wan-test-Internet'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-SSH
@@ -303,8 +303,8 @@ echo "echo \" 	 option src_dport '2233'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.200'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '222'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'test-SSH'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-SSH(Internet)
@@ -318,8 +318,8 @@ echo "echo \" 	 option src_dport '2233'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.200'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '2233'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'wan-test-SSH'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-Transmission
@@ -333,8 +333,8 @@ echo "echo \" 	 option src_dport '9093'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.5.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '9091'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'test-Transmission'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-Transmission(Internet)
@@ -348,8 +348,8 @@ echo "echo \" 	 option src_dport '9093'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.200'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '9093'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'wan-test-Transmission'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-qBittorrent
@@ -363,8 +363,8 @@ echo "echo \" 	 option src_dport '8080'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.5.1'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '8080'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'test-qBittorrent'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Add port forwarding for Openwrt-test-qBittorren(Internet)
@@ -378,8 +378,8 @@ echo "echo \" 	 option src_dport '8282'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_ip '192.168.2.200'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '8080'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'wan-test-qBittorrent'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Open wan's port for Openwrt-Transmission
@@ -390,21 +390,26 @@ echo "echo \" 	 option src 'wan'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option proto 'tcp udp'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option dest_port '51413'\" >> /etc/config/firewall" >> port_file
 echo "echo \" 	 option name 'Transmission-DL'\" >> /etc/config/firewall" >> port_file
-cat port_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
+cat port_file >> package/emortal/default-settings/files/99-default-settings
+echo "" >> package/emortal/default-settings/files/99-default-settings
 rm port_file
 
 # Fix Transmission-web-control
-echo "#修复Transmission-web-control" > fix_file
-echo "sed -i 's#procd_add_jail transmission log#procd_add_jail_mount \"$web_home\"#g' /etc/init.d/transmission" >> fix_file
-cat fix_file >> package/lean/default-settings/files/zzz-default-settings
-echo "" >> package/lean/default-settings/files/zzz-default-settings
-rm fix_file
+# echo "#修复Transmission-web-control" > fix_file
+# echo "sed -i 's#procd_add_jail transmission log#procd_add_jail_mount \"$web_home\"#g' /etc/init.d/transmission" >> fix_file
+# cat fix_file >> package/emortal/default-settings/files/99-default-settings
+# echo "" >> package/emortal/default-settings/files/99-default-settings
+# rm fix_file
 
 # Modify Openwrt's release
-sed -i 's/R23.11.11/R23.11.11 (Compiled by Kisoul on 01.01.2024)/g' package/lean/default-settings/files/zzz-default-settings
+echo "sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release" >> fix_file
+echo "echo \"DISTRIB_REVISION='Compiled by Kisoul on 01.07.2024'\" >> /etc/openwrt_release" >> fix_file
+echo "sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release" >> fix_file
+echo "echo \"DISTRIB_DESCRIPTION='ImmortalWrt '\" >> /etc/openwrt_release" >> fix_file
+echo "" >> package/emortal/default-settings/files/99-default-settings
+rm fix_file
 
-# Write 'exit 0' at the end of the 'zzz-default-settings' file
+# Write 'exit 0' at the end of the '99-default-settings' file
 echo "exit 0" > new_file
-cat new_file >> package/lean/default-settings/files/zzz-default-settings
+cat new_file >> package/emortal/default-settings/files/99-default-settings
 rm new_file
