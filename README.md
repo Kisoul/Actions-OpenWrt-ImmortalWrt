@@ -11,7 +11,7 @@ A template for building OpenWrt with GitHub Actions
 ## Usage
 
 - Click the [Use this template](https://github.com/P3TERX/Actions-OpenWrt/generate) button to create a new repository.
-- Generate `.config` files using [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) source code. ( You can change it through environment variables in the workflow file. )
+- Generate `.config` files using [Immortalwrt's OpenWrt](https://github.com/immortalwrt/immortalwrt) source code. ( You can change it through environment variables in the workflow file. )
 - Push `.config` file to the GitHub repository.
 - Select `Build OpenWrt` on the Actions page.
 - Click the `Run workflow` button.
@@ -28,6 +28,7 @@ A template for building OpenWrt with GitHub Actions
 - [GitHub Actions](https://github.com/features/actions)
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
+- [Immortalwrt's OpenWrt](https://github.com/immortalwrt/immortalwrt)
 - [tmate](https://github.com/tmate-io/tmate)
 - [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate)
 - [csexton/debugger-action](https://github.com/csexton/debugger-action)
@@ -38,7 +39,9 @@ A template for building OpenWrt with GitHub Actions
 - [ActionsRML/delete-workflow-runs](https://github.com/ActionsRML/delete-workflow-runs)
 - [dev-drprasad/delete-older-releases](https://github.com/dev-drprasad/delete-older-releases)
 - [peter-evans/repository-dispatch](https://github.com/peter-evans/repository-dispatch)
-
+- [jlumbroso/free-disk-space](https://github.com/jlumbroso/free-disk-space)
+- [klever1988/cachewrtbuild](https://github.com/klever1988/cachewrtbuild)
+- [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE)
 ## License
 
 [MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**P3TERX**](https://p3terx.com)
