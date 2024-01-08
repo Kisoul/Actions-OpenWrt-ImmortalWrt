@@ -407,9 +407,10 @@ echo "echo \"DISTRIB_REVISION='Compiled by Kisoul on 01.07.2024'\" >> /etc/openw
 echo "sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release" >> fix_file
 echo "echo \"DISTRIB_DESCRIPTION='ImmortalWrt '\" >> /etc/openwrt_release" >> fix_file
 echo "" >> package/emortal/default-settings/files/99-default-settings
+cat fix_file >> package/emortal/default-settings/files/99-default-settings
 rm fix_file
 
 # Write 'exit 0' at the end of the '99-default-settings' file
-echo "exit 0" > new_file
-cat new_file >> package/emortal/default-settings/files/99-default-settings
-rm new_file
+echo "exit 0" > fix_file
+cat fix_file >> package/emortal/default-settings/files/99-default-settings
+rm fix_file
