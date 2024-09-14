@@ -403,7 +403,7 @@ rm port_file
 
 # Modify Openwrt's release
 echo "sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release" >> fix_file
-echo "echo \"DISTRIB_REVISION='Compiled by Kisoul on 01.09.2024'\" >> /etc/openwrt_release" >> fix_file
+echo "echo \"DISTRIB_REVISION='Compiled by Kisoul on 15.09.2024'\" >> /etc/openwrt_release" >> fix_file
 echo "sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release" >> fix_file
 echo "echo \"DISTRIB_DESCRIPTION='ImmortalWrt '\" >> /etc/openwrt_release" >> fix_file
 echo "" >> package/emortal/default-settings/files/99-default-settings
